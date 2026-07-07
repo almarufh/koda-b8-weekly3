@@ -11,6 +11,8 @@ type Users struct {
 	password string
 }
 
+var user = []Users{}
+
 func clear() {
 	fmt.Print("\033[H\033[2J")
 }
@@ -20,7 +22,6 @@ func (u Users) fullName() string {
 }
 
 func register() {
-	user := []Users{}
 	var first string
 	var last string
 	var email string
@@ -78,7 +79,6 @@ func main() {
 	fmt.Printf("\n1. Register\n2. Login\n3. Forgot Password\n\n0. Exit\n\n")
 	fmt.Printf("Choose a menu : ")
 	fmt.Scanf("%d", &input)
-	fmt.Println(input)
 	if input == 1 {
 		register()
 	}
