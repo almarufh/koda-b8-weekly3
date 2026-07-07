@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 type Users struct {
@@ -72,6 +73,10 @@ func register() {
 	fmt.Println(fullname)
 }
 
+func exit() {
+	os.Exit(0)
+}
+
 func main() {
 	var input int
 	clear()
@@ -81,5 +86,9 @@ func main() {
 	fmt.Scanf("%d", &input)
 	if input == 1 {
 		register()
+	}
+
+	if input == 0 {
+		exit()
 	}
 }
