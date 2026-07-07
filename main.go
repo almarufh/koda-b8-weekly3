@@ -70,11 +70,32 @@ func (u Users) getPassword() string {
 	return u.password
 }
 
+func createPassword() string {
+	var password1 string
+	var password2 string
+
+	fmt.Printf("Enter a strong password :  ")
+	fmt.Scanf("%s", &password1)
+
+	fmt.Printf("Confirm your password:  ")
+	fmt.Scanf("%s", &password2)
+
+	if password1 != password2 {
+		clear()
+		fmt.Printf("Wrong confirm password, press enter to back!  \n\n")
+		fmt.Scanf("\n")
+		createPassword()
+	}
+
+	return password1
+}
+
 func register() {
 	var first string
 	var last string
 	var email string
-	var password string
+	// var password1 string
+	// var password2 string
 
 	clear()
 	fmt.Printf("\n\n--- Register ---\n\nWhat is your first name :  ")
@@ -86,11 +107,13 @@ func register() {
 	fmt.Printf("What is your email :  ")
 	fmt.Scanf("%s", &email)
 
-	fmt.Printf("Enter a strong password :  ")
-	fmt.Scanf("%s", &password)
+	password := createPassword()
 
-	fmt.Printf("Confirm your password:  ")
-	fmt.Scanf("%s", &password)
+	// fmt.Printf("Enter a strong password :  ")
+	// fmt.Scanf("%s", &password1)
+
+	// fmt.Printf("Confirm your password:  ")
+	// fmt.Scanf("%s", &password2)
 
 	new := Users{
 		first:    first,
