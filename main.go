@@ -17,7 +17,28 @@ type Users struct {
 	password string
 }
 
-var user = []Users{}
+var user = []Users{
+	{
+		first:    "Alma'ruf",
+		last:     "Hidayat",
+		email:    "almarufhidayat99@gmail.com",
+		password: "1234",
+	},
+	{
+		first:    "Ali",
+		last:     "Ghufro",
+		email:    "alhyghuron@gmail.com",
+		password: "1234",
+	},
+	{
+		first:    "1",
+		last:     "1",
+		email:    "1",
+		password: "1",
+	},
+}
+
+var status bool = false
 
 func clear() {
 	fmt.Print("\033[H\033[2J")
@@ -90,6 +111,26 @@ func exit() {
 	os.Exit(0)
 }
 
+func authLogin(email string, password string) {
+	for x := range user {
+		loginEmail := user[x].getEmail
+		loginPassword := user[x].getPassword()
+		if loginEmail() == email && loginPassword == password {
+			status = true
+			x = len(user)
+		}
+	}
+	if status == true {
+		fmt.Printf("Login success, press enter to back..")
+		fmt.Scanf("\n")
+		main()
+	} else {
+		fmt.Printf("\n\nWrong email or password, press enter to restart...")
+		fmt.Scanf("\n")
+		login()
+	}
+}
+
 func login() {
 	clear()
 	var inputEmail string
@@ -98,11 +139,7 @@ func login() {
 	fmt.Scanf("%s", &inputEmail)
 	fmt.Printf("Enter your password: ")
 	fmt.Scanf("%s", &inputPassword)
-	dataLogin := Login{
-		email:    inputEmail,
-		password: inputPassword,
-	}
-	fmt.Println(dataLogin)
+	authLogin(inputEmail, inputPassword)
 }
 
 func main() {
