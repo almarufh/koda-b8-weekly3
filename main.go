@@ -143,12 +143,27 @@ func exit() {
 }
 
 func authLogin(email string, password string) {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Printf("\nEmail belum terdaftar : %v\n", r)
+			fmt.Printf("\nPress enter to back ...  ")
+			fmt.Scanf("\n")
+			main()
+		}
+	}()
 	var activedSaved bool = false
 	var indexActived int
+
+	if len(user) < 1 {
+		panic("Email tidak ditemukan")
+	}
+
 	for i := range actived {
 		if actived[i].email == email {
 			activedSaved = true
 			indexActived = i
+		} else {
+			login()
 		}
 	}
 
@@ -223,6 +238,11 @@ func listUsers() {
 }
 
 func login() {
+	defer func() {
+		if r := recover(); r != nil {
+			login()
+		}
+	}()
 	clear()
 	var inputEmail string
 	var inputPassword string
