@@ -19,8 +19,12 @@ jobs:
         run: echo -n ${{secrets.GITHUB_TOKEN}} | docker login ghcr.io --username ${{github.actor}} --password-stdin
       - name: Push image to ghcr
         run: docker push ghcr.io/${{github.actor}}/auth-app:latest
-      - name: Compress files dist from artifact
-        run: zip -r ./auth-app-${{ github.ref_name }}.zip ./app/program/*
+      - name: Install dependencies
+        run: go mod tidy
+      - name: Build program
+        run: go build -o program main.go
+      - name: Compress files images
+        run: zip -r ./auth-app-${{ github.ref_name }}.zip ./program/*
       - name: Release to Github
         uses: softprops/action-gh-release@v3
         with:
