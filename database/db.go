@@ -20,7 +20,14 @@ type UserActive struct {
 
 var actived []UserActive = []UserActive{}
 
+// Type data results func
+type Results struct {
+	Message string
+	Code    string
+	Data    Users
+}
+
 // Func Output Memory Adress
-func allVariable() (*[]Users, *[]UserActive) {
+func AllVariable() (*[]Users, *[]UserActive) {
 	return &users, &actived
 }
