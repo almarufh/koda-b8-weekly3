@@ -19,21 +19,11 @@ jobs:
         run: echo -n ${{secrets.GITHUB_TOKEN}} | docker login ghcr.io --username ${{github.actor}} --password-stdin
       - name: Push image to ghcr
         run: docker push ghcr.io/${{github.actor}}/auth-app:latest
-#   release-app:
-#     name: "Release new app version"
-#     needs: build-app
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Download files in artifact
-#         uses: actions/download-artifact@v8
-#         with:
-#           name: upload-dist
-#           path: files
-#       - name: Compress files dist from artifact
-#         run: zip -r ./auth-app-${{ github.ref_name }}.zip ./files/dist/*
-#       - name: Release to Github
-#         uses: softprops/action-gh-release@v3
-#         with:
-#           files: |
-#             auth-app-${{ github.ref_name }}.zip
+      - name: Compress files dist from artifact
+        run: zip -r ./auth-app-${{ github.ref_name }}.zip ./ghcr.io/${{github.actor}}/auth-app:latest
+      - name: Release to Github
+        uses: softprops/action-gh-release@v3
+        with:
+          files: |
+            auth-app-${{ github.ref_name }}.zip
  
