@@ -2,20 +2,20 @@ package database
 
 // Variable User
 type Users struct {
-	first    string
-	last     string
-	email    string
-	password string
+	First    string
+	Last     string
+	Email    string
+	Password string
 }
 
 var users []Users = []Users{}
 
 // Variable User Actived
 type UserActive struct {
-	name     string
-	email    string
-	password string
-	status   bool
+	Name     string
+	Email    string
+	Password string
+	Status   bool
 }
 
 var actived []UserActive = []UserActive{}
