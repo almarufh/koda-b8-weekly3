@@ -20,7 +20,7 @@ jobs:
       - name: Push image to ghcr
         run: docker push ghcr.io/${{github.actor}}/auth-app:latest
       - name: Compress files dist from artifact
-        run: zip -r ./auth-app-${{ github.ref_name }}.zip ./ghcr.io/${{github.actor}}/auth-app:latest
+        run: zip -r ./auth-app-${{ github.ref_name }}.zip ./app/program/*
       - name: Release to Github
         uses: softprops/action-gh-release@v3
         with:
