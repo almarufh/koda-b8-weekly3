@@ -23,7 +23,7 @@ type Results struct {
 	Data    Users
 }
 
-var Project string = "s y s t e m"
+var Project string = "KFC Depok Sawangan"
 
 // Func Output Memory Adress
 var actived []UserActive = []UserActive{}
