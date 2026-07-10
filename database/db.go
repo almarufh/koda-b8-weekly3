@@ -35,12 +35,10 @@ type Products struct {
 
 var Project string = "KFC Depok Sawangan"
 
-// Func Output Memory Adress
+var products []Products = []Products{}
+
 var actived []UserActive = []UserActive{}
 
-func GetActived() *[]UserActive {
-	return &actived
-}
 
 var users []Users = []Users{
 	{
@@ -69,9 +67,19 @@ var users []Users = []Users{
 	},
 }
 
+func GetProducts() *[]Products {
+	return &products
+}
+
+func GetActived() *[]UserActive {
+	return &actived
+}
+
 func GetUsers() *[]Users {
 	return &users
 }
+
+// Methode
 
 // Func Get Email, Password, Full Name
 func (u Users) FullName() string {
