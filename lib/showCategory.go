@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func ShowCategory () {
+func ShowCategory() {
 	utils.Clear()
 	var input string
 	fmt.Printf("\n=======================================")
@@ -20,10 +20,10 @@ func ShowCategory () {
 	fmt.Println("\n\n--------------------------------------")
 	fmt.Println("[0] Exit")
 	fmt.Println("[00] Back")
-	fmt.Println("\n\n=======================================\n")
+	fmt.Printf("\n\n=======================================\n")
 	fmt.Printf("Pilih Kategori (1-4) :  ")
 	fmt.Scanf("%s", &input)
-	
+
 	switch input {
 	case "1":
 		fmt.Println("Masih dalam pengembangan")
