@@ -16,7 +16,7 @@ func Menu() {
 		utils.Clear()
 		fmt.Println("\n")
 		fmt.Printf("--- Welcome to %s ---\n", database.Project)
-		fmt.Printf("\n1. Register\n2. Login\n3. Forgot Password\n\n0. Exit\n\n")
+		fmt.Printf("\n1. Show Menu Product \n2. Register\n3. Login\n4. Forgot Password\n\n0. Exit\n\n")
 		fmt.Printf("Choose a menu : ")
 
 		_, err := fmt.Scanln(&input)
@@ -28,12 +28,17 @@ func Menu() {
 
 		switch input {
 		case 1:
+			utils.Clear()
+			fmt.Printf("Masih dalam pengembangan \n\n")
+			fmt.Printf("press enter back to menu ")
+			fmt.Scanf("\n")
+		case 2:
 			Register(users)
 			return
-		case 2:
+		case 3:
 			Login()
 			return
-		case 3:
+		case 4:
 			ChangePassword()
 			return
 		case 0:
