@@ -26,7 +26,7 @@ func Dashboard() {
 	case "1":
 		return
 	case "2":
-		return
+		ShowCategory()
 	case "3":
 		return
 	case "4":
@@ -36,7 +36,6 @@ func Dashboard() {
 	case "0":
 		actived[indexActived].Status = false
 		Menu()
-		return
 	case "00":
 		return
 	default:
