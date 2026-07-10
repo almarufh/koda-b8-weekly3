@@ -10,36 +10,26 @@ import (
 func Menu() {
 	users := database.GetUsers()
 	fmt.Println(*users)
-	var input int
+	var input string
 
 	for {
 		utils.Clear()
-		fmt.Println("\n")
+		fmt.Printf("\n")
 		fmt.Printf("--- Welcome to %s ---\n", database.Project)
-		fmt.Printf("\n1. Show Menu Product \n2. Register\n3. Login\n4. Forgot Password\n\n0. Exit\n\n")
+		fmt.Printf("\n1. Register\n2. Login\n3. Forgot Password\n\n0. Exit\n\n")
 		fmt.Printf("Choose a menu : ")
-
-		_, err := fmt.Scanln(&input)
-		if err != nil {
-			var discard string
-			fmt.Scanln(&discard)
-			continue
-		}
-
+		fmt.Scanf("%s", &input)
 		switch input {
-		case 1:
-			utils.Clear()
-			ShowCategory()
-		case 2:
+		case "1":
 			Register(users)
 			return
-		case 3:
+		case "2":
 			Login()
 			return
-		case 4:
+		case "4":
 			ChangePassword()
 			return
-		case 0:
+		case "0":
 			os.Exit(0)
 		default:
 			continue
