@@ -29,9 +29,7 @@ func Menu() {
 		switch input {
 		case 1:
 			utils.Clear()
-			fmt.Printf("Masih dalam pengembangan \n\n")
-			fmt.Printf("press enter back to menu ")
-			fmt.Scanf("\n")
+			ShowCategory()
 		case 2:
 			Register(users)
 			return
