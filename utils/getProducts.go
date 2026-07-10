@@ -5,9 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"sync"
 )
 
-func GetProducts() *[]database.Products {
+func GetProducts(wg *sync.WaitGroup, signal *chan int) {
 	products := database.GetProducts()
 	defer func() {
 		if x := recover(); x != nil {
@@ -20,10 +21,10 @@ func GetProducts() *[]database.Products {
 	if err != nil {
 		panic("Mohon maaf list menu tidak ditemukan")
 	}
-	errMar := json.Unmarshal([]byte(string(file)), products)
-	if errMar != nil {
-		panic(errMar.Error())
+	err = json.Unmarshal([]byte(string(file)), products)
+	if err != nil {
+		panic("Data products gagal dimuat")
 	}
-
-	return products
+	*signal <- 1
+	wg.Done()
 }
