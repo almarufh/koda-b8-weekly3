@@ -23,6 +23,16 @@ type Results struct {
 	Data    Users
 }
 
+type Products struct {
+    Id string
+    Name string
+    Category string
+    Description string
+    Price int
+    IsReady bool
+    IsPromo bool
+}
+
 var Project string = "KFC Depok Sawangan"
 
 // Func Output Memory Adress
