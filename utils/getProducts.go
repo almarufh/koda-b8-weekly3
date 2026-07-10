@@ -1,10 +1,9 @@
 package utils
 
 import (
+	"authenticatiion-flow/database"
 	"encoding/json"
 	"fmt"
-	"authenticatiion-flow/database"
-	"mcd-clone/models"
 	"os"
 )
 
@@ -21,10 +20,10 @@ func GetProducts() *[]database.Products {
 	if err != nil {
 		panic("Mohon maaf list menu tidak ditemukan")
 	}
-	errMar := json.Unmarshal([]byte(string(file)), &foods)
+	errMar := json.Unmarshal([]byte(string(file)), products)
 	if errMar != nil {
 		panic(errMar.Error())
 	}
 
-	return &products
+	return products
 }
