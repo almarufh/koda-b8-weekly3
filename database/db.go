@@ -24,21 +24,32 @@ type Results struct {
 }
 
 type Products struct {
-    Id string
-    Name string
-    Category string
-    Description string
-    Price int
-    IsReady bool
-    IsPromo bool
+	Id          string
+	Name        string
+	Category    string
+	Description string
+	Price       int
+	IsReady     bool
+	IsPromo     bool
 }
+
+type Category struct {
+	Urut        int
+	Id          string
+	Name        string
+	Description string
+	Price       int
+}
+
+var cart []string
+
+var productsCategory []Category = []Category{}
 
 var Project string = "KFC Depok Sawangan"
 
 var products []Products = []Products{}
 
 var actived []UserActive = []UserActive{}
-
 
 var users []Users = []Users{
 	{
@@ -67,8 +78,16 @@ var users []Users = []Users{
 	},
 }
 
+func GetCart() *[]string {
+	return &cart
+}
+
 func GetProducts() *[]Products {
 	return &products
+}
+
+func GetCategory() *[]Category {
+	return &productsCategory
 }
 
 func GetActived() *[]UserActive {
