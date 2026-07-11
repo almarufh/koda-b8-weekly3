@@ -1,11 +1,11 @@
 package main
 
 import (
-	"authenticatiion-flow/database"
 	"authenticatiion-flow/lib"
 	"authenticatiion-flow/utils"
 	"fmt"
 	"sync"
+	"time"
 )
 
 func main() {
@@ -18,17 +18,16 @@ func main() {
 	for i < 1 {
 		utils.Clear()
 		fmt.Println("Loading .")
-		// time.Sleep(time.Duration(1) * time.Second)
+		time.Sleep(time.Duration(1) * time.Second)
 		utils.Clear()
 		fmt.Println("Loading . .")
-		// time.Sleep(time.Duration(1) * time.Second)
+		time.Sleep(time.Duration(1) * time.Second)
 		utils.Clear()
 		fmt.Println("Loading . . .")
-		// time.Sleep(time.Duration(1) * time.Second)
+		time.Sleep(time.Duration(1) * time.Second)
 		if <-signal == 1 {
 			i++
 		}
 	}
-	fmt.Println(database.GetProducts())
 	lib.Menu()
 }
