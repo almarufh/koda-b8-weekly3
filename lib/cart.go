@@ -6,39 +6,61 @@ import (
 	"fmt"
 )
 
-func Cart(in int) {
-	category := database.GetCategory()
+func Cart(id string, name string, price int, input int) {
 	cart := database.GetCart()
-	var input string
-	success := false
-	name := ""
-	price := 0
-	description := ""
+	found := false
 
-	for _, results := range *category {
-		search := results.Urut
-		if search == in {
-			name = results.Name
-			price = results.Price
-			description = results.Description
-			*cart = append(*cart, results.Id)
-			success = true
-			break
+	for _, result := range *cart {
+		if result.Id == id {
+			found = true
 		}
 	}
 
-	if !success {
-		utils.WrongInput()
-		return
+	if found == false {
+		newOrder := database.Cart{
+			Id:    id,
+			Urut:  len(*cart) + 1,
+			Name:  name,
+			Price: price,
+			Qty:   input,
+		}
+		*cart = append(*cart, newOrder)
+	} else {
+		for i, result := range *cart {
+			if result.Id == id {
+				(*cart)[i].Qty = result.Qty + input
+				break
+			}
+		}
 	}
 
-	utils.Clear()
-	fmt.Printf("\nName   : %s", name)
-	fmt.Printf("\nPrice  : %d\n", price)
-	fmt.Printf("\nDeskripsi\n")
-	fmt.Printf("-------------------------------\n")
-	fmt.Println(description)
-	fmt.Printf("-------------------------------\n")
-	fmt.Printf("\nTekan ENTER untuk melanjutkan...")
-	fmt.Scanln(&input)
+	for {
+		utils.Clear()
+		var input string
+		fmt.Printf("\n--- [ LIST PESANAN ] ---\n\n")
+		for _, res := range *cart {
+			fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
+		}
+		fmt.Printf("\n\n-----------------------\n")
+		fmt.Printf("[1] Checkout\n[2] Tambah Pesanan\n\n[0] Logout")
+		fmt.Printf("Chose a menu : ")
+		fmt.Scanf("%s", &input)
+		switch input {
+		case "1":
+			Checkout()
+			continue
+		case "2":
+			Dashboard()
+			return
+		case "0":
+			check := utils.Logout()
+			if check {
+				Menu()
+			}
+			return
+		default:
+			utils.WrongInput()
+			continue
+		}
+	}
 }
