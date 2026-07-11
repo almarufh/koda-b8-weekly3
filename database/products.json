@@ -7,7 +7,7 @@
     "price": 14000,
     "isReady": true,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "7k9m4d",
@@ -17,7 +17,7 @@
     "price": 16000,
     "isReady": true,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "2p5x9q",
@@ -27,7 +27,7 @@
     "price": 14000,
     "isReady": true,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "9v1t8w",
@@ -37,7 +37,7 @@
     "price": 41500,
     "isReady": true,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "c4n7z5",
@@ -47,7 +47,7 @@
     "price": 13500,
     "isReady": true,
     "isPromo": true,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "h3m8r2",
@@ -57,7 +57,7 @@
     "price": 13500,
     "isReady": true,
     "isPromo": true,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "k7p4w9",
@@ -67,7 +67,7 @@
     "price": 13500,
     "isReady": true,
     "isPromo": true,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "x5s2b8",
@@ -77,7 +77,7 @@
     "price": 54500,
     "isReady": true,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "3g9v4c",
@@ -87,7 +87,7 @@
     "price": 24500,
     "isReady": true,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "f8t2k6",
@@ -97,7 +97,7 @@
     "price": 22000,
     "isReady": true,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "m1w5p9",
@@ -107,7 +107,7 @@
     "price": 56500,
     "isReady": true,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "7b3n8q",
@@ -117,7 +117,7 @@
     "price": 60000,
     "isReady": true,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "v9d2k4",
@@ -127,7 +127,7 @@
     "price": 0,
     "isReady": false,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "z5r8w3",
@@ -137,7 +137,7 @@
     "price": 0,
     "isReady": false,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "4p7x9m",
@@ -147,7 +147,7 @@
     "price": 59000,
     "isReady": true,
     "isPromo": false,
-    "stok": 15
+    "stock": 15
   },
   {
     "id": "8k2c5t",
