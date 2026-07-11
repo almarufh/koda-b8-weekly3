@@ -35,6 +35,7 @@ func ByCategory(category string) {
 					Name:        results.Name,
 					Description: results.Description,
 					Price:       results.Price,
+					Stock:       results.Stock,
 				}
 
 				*getCategory = append(*getCategory, product)
