@@ -8,8 +8,8 @@ import (
 )
 
 func ShowCategory() {
-	var input string
 	for {
+		var input string
 		utils.Clear()
 		fmt.Printf("\n=======================================")
 		fmt.Printf("\nList Menu %s", database.Project)
@@ -19,8 +19,8 @@ func ShowCategory() {
 		fmt.Println("[3] Chicken")
 		fmt.Println("[4] Bowl/Burger")
 		fmt.Println("\n\n--------------------------------------")
-		fmt.Println("[0] Exit")
-		fmt.Println("[00] Back")
+		fmt.Println("[0] Back")
+		fmt.Println("[00] Exit")
 		fmt.Printf("\n\n=======================================\n")
 		fmt.Printf("Pilih Kategori (1-4) :  ")
 		fmt.Scanf("%s", &input)
@@ -28,21 +28,16 @@ func ShowCategory() {
 		switch input {
 		case "1":
 			ByCategory("Promotion")
-			return
 		case "2":
 			ByCategory("Beverage")
-			return
 		case "3":
 			ByCategory("Chicken")
-			return
 		case "4":
 			ByCategory("Bowl/Burger")
-			return
 		case "0":
-			os.Exit(1)
 			return
 		case "00":
-			return
+			os.Exit(1)
 		default:
 			utils.WrongInput()
 			continue
