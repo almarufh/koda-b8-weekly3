@@ -28,7 +28,7 @@ func Cart(in int) {
 	}
 
 	if !success {
-		utils.WrongInput(&input)
+		utils.WrongInput()
 		return
 	}
 
