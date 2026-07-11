@@ -43,7 +43,15 @@ type Category struct {
 	Stock       int
 }
 
-var cart []string
+type Cart struct {
+	Id    string
+	Urut  int
+	Name  string
+	Price int
+	Qty   int
+}
+
+var cart []Cart = []Cart{}
 
 var productsCategory []Category = []Category{}
 
@@ -80,7 +88,7 @@ var users []Users = []Users{
 	},
 }
 
-func GetCart() *[]string {
+func GetCart() *[]Cart {
 	return &cart
 }
 
