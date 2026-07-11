@@ -6,7 +6,8 @@
     "description": "Coca-Cola",
     "price": 14000,
     "isReady": true,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "7k9m4d",
@@ -15,7 +16,8 @@
     "description": "Mineral Water",
     "price": 16000,
     "isReady": true,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "2p5x9q",
@@ -24,7 +26,8 @@
     "description": "Manggo Float",
     "price": 14000,
     "isReady": true,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "9v1t8w",
@@ -33,7 +36,8 @@
     "description": "1 pc Chicken + 1 Rice + 1 Coca-Cola",
     "price": 41500,
     "isReady": true,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "c4n7z5",
@@ -42,7 +46,8 @@
     "description": "7 pc Chicken +7 Rice",
     "price": 13500,
     "isReady": true,
-    "isPromo": true
+    "isPromo": true,
+    "stok": 15
   },
   {
     "id": "h3m8r2",
@@ -51,7 +56,8 @@
     "description": "2 pc Chicken 2 Rice 2 Mineral Water [Potongan Ayam yang tersedia tergantung ketersediaan ditoko pada saat pemesanan / pengiriman]",
     "price": 13500,
     "isReady": true,
-    "isPromo": true
+    "isPromo": true,
+    "stok": 15
   },
   {
     "id": "k7p4w9",
@@ -60,7 +66,8 @@
     "description": "4 Wingette + 4 Drumette + Rice + 2 Coke Med",
     "price": 13500,
     "isReady": true,
-    "isPromo": true
+    "isPromo": true,
+    "stok": 15
   },
   {
     "id": "x5s2b8",
@@ -69,7 +76,8 @@
     "description": "2 Pc Chicken + Rice + 1 Coca-Cola Medium",
     "price": 54500,
     "isReady": true,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "3g9v4c",
@@ -78,7 +86,8 @@
     "description": "1pc Chicken",
     "price": 24500,
     "isReady": true,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "f8t2k6",
@@ -87,7 +96,8 @@
     "description": "2pcs Chicken Strips",
     "price": 22000,
     "isReady": true,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "m1w5p9",
@@ -96,7 +106,8 @@
     "description": "Chicken Steak + French Fries Reguler + Coke Zero",
     "price": 56500,
     "isReady": true,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "7b3n8q",
@@ -105,7 +116,8 @@
     "description": "5 Pcs Drumtte, 5 Wingette + 2 1/2 Sachet Seasoning BBQ",
     "price": 60000,
     "isReady": true,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "v9d2k4",
@@ -114,7 +126,8 @@
     "description": "1 Original Porridge + Hot Tea / Hot Coffee",
     "price": 0,
     "isReady": false,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "z5r8w3",
@@ -123,7 +136,8 @@
     "description": "1 Chicken Porridge + Hot Tea / Hot Coffee",
     "price": 0,
     "isReady": false,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "4p7x9m",
@@ -132,7 +146,8 @@
     "description": "1 Colonel Burger + 1 French Fries Reguler  + 1 Fanta Reguler",
     "price": 59000,
     "isReady": true,
-    "isPromo": false
+    "isPromo": false,
+    "stok": 15
   },
   {
     "id": "8k2c5t",
