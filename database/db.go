@@ -31,7 +31,7 @@ type Products struct {
 	Price       int
 	IsReady     bool
 	IsPromo     bool
-	stock       int
+	Stock       int
 }
 
 type Category struct {
@@ -40,7 +40,7 @@ type Category struct {
 	Name        string
 	Description string
 	Price       int
-	stock       int
+	Stock       int
 }
 
 var cart []string
