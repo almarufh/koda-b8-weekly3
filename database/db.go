@@ -31,6 +31,7 @@ type Products struct {
 	Price       int
 	IsReady     bool
 	IsPromo     bool
+	stock       int
 }
 
 type Category struct {
