@@ -40,6 +40,7 @@ type Category struct {
 	Name        string
 	Description string
 	Price       int
+	stock       int
 }
 
 var cart []string
