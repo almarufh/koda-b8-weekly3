@@ -8,6 +8,7 @@ import (
 
 func ByCategory(category string) {
 	getCategory := database.GetCategory()
+	newCategory := []database.Category{}
 	products := database.GetProducts()
 	urut := 0
 
@@ -21,8 +22,9 @@ func ByCategory(category string) {
 					Name:        results.Name,
 					Description: results.Description,
 					Price:       results.Price,
+					Stock:       results.Stock,
 				}
-				*getCategory = append(*getCategory, product)
+				newCategory = append(newCategory, product)
 			}
 		}
 	} else {
@@ -38,15 +40,18 @@ func ByCategory(category string) {
 					Stock:       results.Stock,
 				}
 
-				*getCategory = append(*getCategory, product)
+				newCategory = append(newCategory, product)
 			}
 		}
 	}
+
+	*getCategory = newCategory
 
 	for {
 		utils.Clear()
 		var input int
 		fmt.Printf("\n--- [ Products Category %s ] ---\n\n", category)
+		qty := len(*getCategory)
 
 		for i, results := range *getCategory {
 			if i <= 8 {
@@ -55,10 +60,28 @@ func ByCategory(category string) {
 				fmt.Printf("[%d]  %s\n", i+1, results.Name)
 			}
 		}
-		fmt.Printf("\n\nChose menu : ")
-		fmt.Scanf("%d", &input)
-		Cart(input)
-		continue
+		fmt.Printf("\n\n--------------------------\n[0] Back\n\nChose menu (1-%d): ", qty)
+		// fmt.Scanf("%d", &input)
+
+		_, err := fmt.Scanln(&input)
+
+		if err != nil {
+			utils.WrongInput()
+			continue
+		}
+
+		if input > 0 && input <= qty {
+			Order(input)
+			continue
+		}
+
+		switch input {
+		case 0:
+			return
+		default:
+			utils.WrongInput()
+			continue
+		}
 	}
 
 }
