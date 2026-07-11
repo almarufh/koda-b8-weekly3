@@ -32,6 +32,7 @@ func Menu() {
 		case "0":
 			os.Exit(0)
 		default:
+			utils.WrongInput()
 			continue
 		}
 	}

@@ -18,7 +18,7 @@ func Register(users *[]database.Users) {
 	fmt.Printf("Last Name :  ")
 	fmt.Scanf("%s", &last)
 
-	fmt.Printf("Email :  ")
+	fmt.Printf("Username :  ")
 	fmt.Scanf("%s", &email)
 
 	password := CreatePassword()
@@ -41,7 +41,7 @@ func Register(users *[]database.Users) {
 	fmt.Printf("\n\nIs it true?\n\n")
 	fmt.Println("First Name : ", first)
 	fmt.Println("Last Name : ", last)
-	fmt.Println("Email : ", email)
+	fmt.Println("Username : ", email)
 	fmt.Printf("\n\nContinue (y/n) :  ")
 	fmt.Scanf("%s", &confirmAccept)
 	switch confirmAccept {
