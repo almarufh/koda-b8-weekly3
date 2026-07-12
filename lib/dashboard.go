@@ -21,10 +21,13 @@ func Dashboard() {
 			ShowCategory()
 			return
 		case "3":
+			Search()
 			return
 		case "4":
+			Cart()
 			return
 		case "5":
+			Checkout()
 			return
 		case "0":
 			check := utils.Logout()
