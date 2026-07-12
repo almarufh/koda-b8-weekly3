@@ -22,13 +22,13 @@ func Menu() {
 		switch input {
 		case "1":
 			Register(users)
-			return
+			continue
 		case "2":
 			Login()
-			return
+			continue
 		case "3":
 			ChangePassword()
-			return
+			continue
 		case "0":
 			os.Exit(0)
 		default:
