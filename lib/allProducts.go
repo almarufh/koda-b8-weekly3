@@ -62,5 +62,4 @@ func ShowAllProducts() {
 			continue
 		}
 	}
-
 }
