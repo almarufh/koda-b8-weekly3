@@ -41,7 +41,7 @@ func ChangePassword() {
 	*getUsers = users
 
 	utils.Clear()
-	fmt.Printf("Password changed successfully! Press enter to home menu...")
+	fmt.Printf("Password changed successfully!\n\nPress enter to home menu... ")
 	fmt.Scanf("\n")
 	Menu()
 }
