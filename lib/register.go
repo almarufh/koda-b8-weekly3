@@ -22,7 +22,9 @@ func Register(users *[]database.Users) {
 		fmt.Printf("Username :  ")
 		fmt.Scanf("%s", &email)
 
-		password := CreatePassword()
+		fullName := first + " " + last
+
+		password := CreatePassword(fullName, email)
 
 		newUser := database.Users{
 			First:    first,
