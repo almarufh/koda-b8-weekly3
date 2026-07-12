@@ -4,44 +4,57 @@ import (
 	"authenticatiion-flow/database"
 	"authenticatiion-flow/utils"
 	"fmt"
+	"strings"
 )
 
 func ChangePassword() {
-	utils.Clear()
 	var email string
-	fmt.Printf("\n--- [Forgot Password ] ---\n\nInput your email :  ")
-	fmt.Scanf("%s", &email)
 	getUsers := database.GetUsers()
-	users := *getUsers
+	search := utils.ResultByEmail{}
 
-	var indexUser int
-	var found bool = false
+first:
+	for {
+		utils.Clear()
+		fmt.Printf("\n--- [Forgot Password ] ---\n\nInput your username :  ")
+		fmt.Scanf("%s", &email)
 
-	for i := range users {
-		if users[i].GetEmail() == email {
-			found = true
-			indexUser = i
-			break
+		search = utils.GetUserByEmail(email)
+		found := search.Status
+
+		if !found {
+			fmt.Printf("\nUsername not found !!!\n\nPress ENTER to try again")
+			fmt.Scanf("\n")
+			continue
+		}
+
+		break
+	}
+
+	for {
+		utils.Clear()
+		fmt.Printf("--- Whats This Your Account ---\n\n")
+		fmt.Printf("Name      : %s\n", search.Data.Name)
+		fmt.Printf("Username  : %s\n", search.Data.Email)
+
+		fmt.Printf("\n\nConfirm (y/n) : ")
+		fmt.Scanf("%s", &email)
+
+		switch strings.ToLower(email) {
+		case "y":
+			newPassword := CreatePassword()
+
+			(*getUsers)[search.Index].Password = utils.Encrypted(newPassword)
+
+			utils.Clear()
+			fmt.Printf("Password changed successfully!\n\nPress enter to home menu... ")
+			fmt.Scanf("\n")
+			return
+		case "n":
+			goto first
+		case "back":
+			return
+		default:
+			continue
 		}
 	}
-
-	if !found {
-		fmt.Printf("\nEmail tidak ditemukan, tekan enter untuk kembali...")
-		fmt.Scanf("\n")
-		Menu()
-		return
-	}
-
-	utils.Clear()
-	fmt.Printf("--- CHANGE PASSWORD FOR %s ---\n\n", email)
-
-	newPassword := CreatePassword()
-
-	users[indexUser].Password = utils.Encrypted(newPassword)
-	*getUsers = users
-
-	utils.Clear()
-	fmt.Printf("Password changed successfully!\n\nPress enter to home menu... ")
-	fmt.Scanf("\n")
-	Menu()
 }
