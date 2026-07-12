@@ -6,29 +6,31 @@ import (
 )
 
 type UserByEmail struct {
-	email    string
-	password string
-	name     string
+	Email    string
+	Password string
+	Name     string
 }
 
 type ResultByEmail struct {
-	status bool
-	data   UserByEmail
+	Status bool
+	Index  int
+	Data   UserByEmail
 }
 
 func GetUserByEmail(email string) ResultByEmail {
 	users := database.GetUsers()
 
-	for _, res := range *users {
+	for i, res := range *users {
 		emailLower := strings.ToLower(res.Email)
 		searchEmail := strings.ToLower(email)
 		if emailLower == searchEmail {
 			result := ResultByEmail{
-				status: true,
-				data: UserByEmail{
-					email:    res.GetEmail(),
-					password: res.GetPassword(),
-					name:     res.FullName(),
+				Status: true,
+				Index:  i,
+				Data: UserByEmail{
+					Email:    res.GetEmail(),
+					Password: res.GetPassword(),
+					Name:     res.FullName(),
 				},
 			}
 			return result
@@ -36,7 +38,8 @@ func GetUserByEmail(email string) ResultByEmail {
 	}
 
 	return ResultByEmail{
-		status: false,
-		data:   UserByEmail{},
+		Status: false,
+		Index:  -1,
+		Data:   UserByEmail{},
 	}
 }
