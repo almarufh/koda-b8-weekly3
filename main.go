@@ -17,13 +17,13 @@ func main() {
 	i := 0
 	for i < 1 {
 		utils.Clear()
-		fmt.Println("Loading .")
+		fmt.Printf("Loading .")
 		time.Sleep(time.Duration(1) * time.Second)
 		utils.Clear()
-		fmt.Println("Loading . .")
+		fmt.Printf("Loading . .")
 		time.Sleep(time.Duration(1) * time.Second)
 		utils.Clear()
-		fmt.Println("Loading . . .")
+		fmt.Printf("Loading . . .")
 		time.Sleep(time.Duration(1) * time.Second)
 		if <-signal == 1 {
 			i++
