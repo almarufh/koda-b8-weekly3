@@ -4,6 +4,7 @@ import (
 	"authenticatiion-flow/database"
 	"authenticatiion-flow/utils"
 	"fmt"
+	"strings"
 )
 
 func Register(users *[]database.Users) {
@@ -13,14 +14,25 @@ func Register(users *[]database.Users) {
 
 	for {
 		utils.Clear()
+		fmt.Printf(`Input "Back" and press enter to back`)
+		fmt.Printf("\n\n")
 		fmt.Printf("\n\n--- REGISTER ---\n\nFirst Name :  ")
 		fmt.Scanf("%s", &first)
+		if strings.ToLower(first) == "back" {
+			return
+		}
 
 		fmt.Printf("Last Name :  ")
 		fmt.Scanf("%s", &last)
+		if strings.ToLower(last) == "back" {
+			return
+		}
 
 		fmt.Printf("Username :  ")
 		fmt.Scanf("%s", &email)
+		if strings.ToLower(email) == "back" {
+			return
+		}
 
 		fullName := first + " " + last
 
