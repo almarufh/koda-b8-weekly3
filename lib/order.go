@@ -8,6 +8,7 @@ import (
 
 func Order(in int) {
 	category := database.GetCategory()
+	cart := database.GetCart()
 	success := false
 	name := ""
 	price := 0
@@ -54,7 +55,32 @@ func Order(in int) {
 		}
 
 		if input <= stock && input > 0 {
-			Cart(id, name, price, input)
+			found := false
+
+			for _, result := range *cart {
+				if result.Id == id {
+					found = true
+				}
+			}
+
+			if found == false {
+				newOrder := database.Cart{
+					Id:    id,
+					Urut:  len(*cart) + 1,
+					Name:  name,
+					Price: price,
+					Qty:   input,
+				}
+				*cart = append(*cart, newOrder)
+			} else {
+				for i, result := range *cart {
+					if result.Id == id {
+						(*cart)[i].Qty = result.Qty + input
+						break
+					}
+				}
+			}
+			Cart()
 			continue
 		}
 
