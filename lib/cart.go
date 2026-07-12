@@ -6,33 +6,8 @@ import (
 	"fmt"
 )
 
-func Cart(id string, name string, price int, input int) {
+func Cart() {
 	cart := database.GetCart()
-	found := false
-
-	for _, result := range *cart {
-		if result.Id == id {
-			found = true
-		}
-	}
-
-	if found == false {
-		newOrder := database.Cart{
-			Id:    id,
-			Urut:  len(*cart) + 1,
-			Name:  name,
-			Price: price,
-			Qty:   input,
-		}
-		*cart = append(*cart, newOrder)
-	} else {
-		for i, result := range *cart {
-			if result.Id == id {
-				(*cart)[i].Qty = result.Qty + input
-				break
-			}
-		}
-	}
 
 	for {
 		utils.Clear()
@@ -42,7 +17,7 @@ func Cart(id string, name string, price int, input int) {
 			fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
 		}
 		fmt.Printf("\n\n-----------------------\n")
-		fmt.Printf("[1] Checkout\n[2] Tambah Pesanan\n\n[0] Logout")
+		fmt.Printf("[1] Checkout\n[2] Tambah Pesanan\n\n[0] Logout\n\n")
 		fmt.Printf("Chose a menu : ")
 		fmt.Scanf("%s", &input)
 		switch input {
