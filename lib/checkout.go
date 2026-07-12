@@ -31,8 +31,8 @@ func Checkout() {
 			fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
 		}
 		fmt.Printf("\n------------------------")
-		fmt.Printf("\nStatus : Belum Bayar")
-		fmt.Println("\nTotal : Calculating .")
+		fmt.Printf("\nStatus      : BELUM BAYAR")
+		fmt.Printf("\nTotal       : Calculating .")
 		time.Sleep(time.Duration(1) * time.Second)
 		utils.Clear()
 		fmt.Printf("--- [ STRUK PEMBELIAN ] ---\n\n")
@@ -40,8 +40,8 @@ func Checkout() {
 			fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
 		}
 		fmt.Printf("\n------------------------")
-		fmt.Printf("\nStatus : Belum Bayar")
-		fmt.Println("\nTotal : Calculating . .")
+		fmt.Printf("\nStatus      : BELUM BAYAR")
+		fmt.Printf("\nTotal       : Calculating . .")
 		time.Sleep(time.Duration(1) * time.Second)
 		utils.Clear()
 		fmt.Printf("--- [ STRUK PEMBELIAN ] ---\n\n")
@@ -49,8 +49,8 @@ func Checkout() {
 			fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
 		}
 		fmt.Printf("\n------------------------")
-		fmt.Printf("\nStatus : Belum Bayar")
-		fmt.Println("\nTotal : Calculating . . .")
+		fmt.Printf("\nStatus      : BELUM BAYAR")
+		fmt.Printf("\nTotal       : Calculating . . .")
 		time.Sleep(time.Duration(1) * time.Second)
 		utils.Clear()
 		fmt.Printf("--- [ STRUK PEMBELIAN ] ---\n\n")
@@ -58,8 +58,8 @@ func Checkout() {
 			fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
 		}
 		fmt.Printf("\n------------------------")
-		fmt.Printf("\nStatus : Belum Bayar")
-		fmt.Println("\nTotal : Calculating . . .")
+		fmt.Printf("\nStatus      : BELUM BAYAR")
+		fmt.Printf("\nTotal       : Calculating . . .")
 		time.Sleep(time.Duration(1) * time.Second)
 		if <-signal == len(*cart) {
 			i = len(*cart)
@@ -76,9 +76,9 @@ func Checkout() {
 			fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
 		}
 		fmt.Printf("\n------------------------")
-		fmt.Printf("\nStatus : Belum Bayar")
-		fmt.Printf("\nTotal : Rp%d\n\n", total)
-		fmt.Printf("Total Bayar : ")
+		fmt.Printf("\nStatus      : BELUM BAYAR")
+		fmt.Printf("\nTotal       : Rp%d\n\n", total)
+		fmt.Printf("\nTotal Bayar : ")
 		_, err := fmt.Scanln(&input)
 
 		if err != nil {
@@ -99,11 +99,11 @@ func Checkout() {
 					fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
 				}
 				fmt.Printf("\n------------------------")
-				fmt.Printf("\nStatus : LUNAS")
-				fmt.Printf("\nTotal : Rp%d\n\n", total)
+				fmt.Printf("\nStatus      : LUNAS")
+				fmt.Printf("\nTotal       : Rp%d\n\n", total)
 
-				fmt.Println("Pembayaran : Rp", input)
-				fmt.Println("Kembalian : Rp", input-total)
+				fmt.Printf("\nPembayaran  : Rp%d", input)
+				fmt.Printf("\nKembalian   : Rp%d", input-total)
 				fmt.Printf("\nTerimakasih %s ....", utils.NameActived())
 				fmt.Printf("\n\nPres ENTER back to HOME  ")
 				fmt.Scanln()
