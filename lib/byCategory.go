@@ -55,13 +55,13 @@ func ByCategory(category string) {
 
 		for i, results := range *getCategory {
 			if i <= 8 {
-				fmt.Printf("[%d] %s\n", i+1, results.Name)
+				fmt.Printf("[%d] %s <----> [Rp%d]\n", i+1, results.Name, results.Price)
 			} else {
-				fmt.Printf("[%d]  %s\n", i+1, results.Name)
+				fmt.Printf("[%d]  %s <----> [Rp%d]\n", i+1, results.Name, results.Price)
 			}
 		}
+
 		fmt.Printf("\n\n--------------------------\n[0] Back\n\nChose menu (1-%d): ", qty)
-		// fmt.Scanf("%d", &input)
 
 		_, err := fmt.Scanln(&input)
 
