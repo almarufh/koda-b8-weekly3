@@ -15,8 +15,13 @@ func ChangePassword() {
 first:
 	for {
 		utils.Clear()
+		fmt.Printf(`Input "Back" and press enter to back`)
+		fmt.Printf("\n\n")
 		fmt.Printf("\n--- [Forgot Password ] ---\n\nInput your username :  ")
 		fmt.Scanf("%s", &email)
+		if strings.ToLower(email) == "back" {
+			return
+		}
 
 		search = utils.GetUserByEmail(email)
 		found := search.Status
@@ -41,7 +46,7 @@ first:
 
 		switch strings.ToLower(email) {
 		case "y":
-			newPassword := CreatePassword()
+			newPassword := CreatePassword(search.Data.Name, search.Data.Email)
 
 			(*getUsers)[search.Index].Password = utils.Encrypted(newPassword)
 
@@ -51,8 +56,6 @@ first:
 			return
 		case "n":
 			goto first
-		case "back":
-			return
 		default:
 			continue
 		}
