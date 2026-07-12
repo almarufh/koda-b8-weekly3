@@ -26,7 +26,7 @@ func Menu() {
 		case "2":
 			Login()
 			return
-		case "4":
+		case "3":
 			ChangePassword()
 			return
 		case "0":
