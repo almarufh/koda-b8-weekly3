@@ -3,24 +3,34 @@ package lib
 import (
 	"authenticatiion-flow/utils"
 	"fmt"
+	"regexp"
 )
 
 func CreatePassword() string {
 	var password1 string
 	var password2 string
 
-	fmt.Printf("Enter a strong password :  ")
-	fmt.Scanf("%s", &password1)
+	utils.Clear()
+	fmt.Printf("Create New PIN (4 digits):  ")
+	fmt.Scanln(&password1)
 
-	fmt.Printf("Confirm your password:  ")
-	fmt.Scanf("%s", &password2)
+	value, _ := regexp.MatchString("^[0-9]{4}$", password1)
+
+	if !value {
+		utils.Clear()
+		fmt.Printf("PIN must be exactly 4 digits of numbers!!!\n\nPress ENTER to retry... ")
+		fmt.Scanln()
+		return CreatePassword()
+	}
+
+	fmt.Printf("Confirm New PIN:  ")
+	fmt.Scanln(&password2)
 
 	if password1 != password2 {
 		utils.Clear()
-		fmt.Printf("Wrong confirm password, press enter to back!  \n\n")
-		fmt.Scanf("\n")
-		CreatePassword()
+		fmt.Printf("Wrong confirm password!!!\n\nPress ENTER to retry! ")
+		fmt.Scanln()
+		return CreatePassword()
 	}
-
 	return password1
 }
