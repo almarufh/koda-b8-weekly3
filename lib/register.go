@@ -16,19 +16,20 @@ func Register(users *[]database.Users) {
 		utils.Clear()
 		fmt.Printf(`Input "Back" and press enter to back`)
 		fmt.Printf("\n\n")
-		fmt.Printf("\n\n--- REGISTER ---\n\nFirst Name :  ")
+		fmt.Printf("\n\n--- REGISTER ---\n")
+		fmt.Printf("\nFirst Name :  ")
 		fmt.Scanf("%s", &first)
 		if strings.ToLower(first) == "back" {
 			return
 		}
 
-		fmt.Printf("Last Name :  ")
+		fmt.Printf("Last Name  :  ")
 		fmt.Scanf("%s", &last)
 		if strings.ToLower(last) == "back" {
 			return
 		}
 
-		fmt.Printf("Username :  ")
+		fmt.Printf("Username   :  ")
 		fmt.Scanf("%s", &email)
 		if strings.ToLower(email) == "back" {
 			return
@@ -55,11 +56,11 @@ func Register(users *[]database.Users) {
 		var confirmAccept string
 		fmt.Printf("\n\nIs it true?\n\n")
 		fmt.Println("First Name : ", first)
-		fmt.Println("Last Name : ", last)
-		fmt.Println("Username : ", email)
-		fmt.Printf("\n\nContinue (y/n) :  ")
+		fmt.Println("Last Name  : ", last)
+		fmt.Println("Username   : ", email)
+		fmt.Printf("\n\nCreate Account? (y/n) :  ")
 		fmt.Scanf("%s", &confirmAccept)
-		switch confirmAccept {
+		switch strings.ToLower(confirmAccept) {
 		case "y":
 			*users = append(*users, newUser)
 			fmt.Printf("\n\nRegister success, press enter to back..")
