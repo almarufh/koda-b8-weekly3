@@ -16,6 +16,7 @@ func Checkout() {
 	total := 0
 	count := 0
 	signal := make(chan int)
+	signal2 := make(chan string)
 	for i, res := range *cart {
 		wait.Add(1)
 		count += i + 1
@@ -73,10 +74,13 @@ func Checkout() {
 		utils.Clear()
 		fmt.Printf("--- [ STRUK PEMBELIAN ] ---\n\n")
 		for _, res := range *cart {
-			fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
+			if res.Username == utils.UserNameActived() {
+				fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
+			}
 		}
 		fmt.Printf("\n------------------------")
 		fmt.Printf("\nStatus      : BELUM BAYAR")
+		fmt.Printf("\nUser        : %s", utils.NameActived())
 		fmt.Printf("\nTotal       : Rp%d\n\n", total)
 		fmt.Printf("\nTotal Bayar : ")
 		_, err := fmt.Scanln(&input)
@@ -93,6 +97,11 @@ func Checkout() {
 			}
 
 			if input >= total {
+				wait.Add(1)
+				go utils.AddHistory(&wait, &signal2)
+				fmt.Println(<-signal2)
+				wait.Wait()
+				time.Sleep(time.Duration(1) * time.Second)
 				utils.Clear()
 				fmt.Printf("--- [ STRUK PEMBELIAN ] ---\n\n")
 				for _, res := range *cart {
@@ -104,10 +113,11 @@ func Checkout() {
 
 				fmt.Printf("\nPembayaran  : Rp%d", input)
 				fmt.Printf("\nKembalian   : Rp%d", input-total)
-				fmt.Printf("\nTerimakasih %s ....", utils.NameActived())
+				fmt.Printf("\n\nTerimakasih %s ....", utils.NameActived())
 				fmt.Printf("\n\nPres ENTER back to HOME  ")
 				fmt.Scanln()
 				Dashboard()
+				return
 			}
 		}
 
