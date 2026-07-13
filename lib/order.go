@@ -58,18 +58,19 @@ func Order(in int) {
 			found := false
 
 			for _, result := range *cart {
-				if result.Id == id {
+				if result.Id == id && result.Username == utils.UserNameActived() {
 					found = true
 				}
 			}
 
 			if found == false {
 				newOrder := database.Cart{
-					Id:    id,
-					Urut:  len(*cart) + 1,
-					Name:  name,
-					Price: price,
-					Qty:   input,
+					Username: utils.UserNameActived(),
+					Id:       id,
+					Urut:     len(*cart) + 1,
+					Name:     name,
+					Price:    price,
+					Qty:      input,
 				}
 				*cart = append(*cart, newOrder)
 			} else {
