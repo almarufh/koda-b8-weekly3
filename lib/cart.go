@@ -12,9 +12,17 @@ func Cart() {
 	for {
 		utils.Clear()
 		var input string
+		if len(*cart) < 1 {
+			fmt.Printf("Keranjang masih kosong silahkan pilih menu terlebih dahulu\n\nPress ENTER for back")
+			fmt.Scanln()
+			return
+		}
+		fmt.Printf("\nHello, %s\n\n", utils.NameActived())
 		fmt.Printf("\n--- [ LIST PESANAN ] ---\n\n")
 		for _, res := range *cart {
-			fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
+			if res.Username == utils.UserNameActived() {
+				fmt.Printf("%d. %s qty(x%d) Rp%d\n", res.Urut, res.Name, res.Qty, res.Price*res.Qty)
+			}
 		}
 		fmt.Printf("\n\n-----------------------\n")
 		fmt.Printf("[1] Checkout\n[2] Tambah Pesanan\n\n[0] Logout\n\n")
