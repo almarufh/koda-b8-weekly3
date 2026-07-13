@@ -44,12 +44,24 @@ type Category struct {
 }
 
 type Cart struct {
-	Id    string
-	Urut  int
-	Name  string
-	Price int
-	Qty   int
+	Username string
+	Id       string
+	Urut     int
+	Name     string
+	Price    int
+	Qty      int
 }
+
+type History struct {
+	Username string
+	Id       string
+	Urut     int
+	Name     string
+	Price    int
+	Qty      int
+}
+
+var history []History = []History{}
 
 var cart []Cart = []Cart{}
 
@@ -86,6 +98,10 @@ var users []Users = []Users{
 		Email:    "a",
 		Password: "0cc175b9c0f1b6a831c399e269772661",
 	},
+}
+
+func GetHistory() *[]History {
+	return &history
 }
 
 func GetCart() *[]Cart {
