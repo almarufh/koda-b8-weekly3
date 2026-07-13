@@ -5,13 +5,9 @@ import (
 	"fmt"
 )
 
-func Login() {
-	utils.Clear()
-	var inputEmail string
+func Login(inputEmail string) {
 	var inputPassword string
-	fmt.Printf("\n---[ Page Login ]---\n\nEnter your email: ")
-	fmt.Scanf("%s", &inputEmail)
-	fmt.Printf("Enter your password: ")
+	fmt.Printf("PIN (4 digits) : ")
 	fmt.Scanf("%s", &inputPassword)
 	fmt.Printf("\n--------------------\n")
 	password := utils.Encrypted(inputPassword)
