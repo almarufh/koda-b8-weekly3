@@ -35,6 +35,12 @@ func SearchProduct(search string) {
 		utils.Clear()
 		var input int
 		qty := len(*getCategory)
+		if qty < 1 {
+			fmt.Printf(`*keyword "%s" tidak ada Products ditemukan `, search)
+			fmt.Printf("\n\nPress Enter for search again... ")
+			fmt.Scanln()
+			return
+		}
 		fmt.Printf(`*keyword "%s" ditemukan %d Products`, search, qty)
 		fmt.Printf("\n\n")
 		for i, results := range *getCategory {
