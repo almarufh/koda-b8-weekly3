@@ -12,9 +12,9 @@ func CreatePassword(name string, username string) string {
 
 	for {
 		utils.Clear()
-		fmt.Printf("Full Name : %s\n", name)
-		fmt.Printf("Username  : %s\n", username)
-		fmt.Printf("Create New PIN (4 digits):  ")
+		fmt.Printf("Full Name                 : %s\n", name)
+		fmt.Printf("Username                  : %s\n", username)
+		fmt.Printf("Create New PIN (4 digits) : ")
 		fmt.Scanln(&password1)
 
 		value, _ := regexp.MatchString("^[0-9]{4}$", password1)
@@ -26,7 +26,7 @@ func CreatePassword(name string, username string) string {
 			continue
 		}
 
-		fmt.Printf("Confirm New PIN:  ")
+		fmt.Printf("Confirm New PIN           : ")
 		fmt.Scanln(&password2)
 
 		if password1 == password2 {
