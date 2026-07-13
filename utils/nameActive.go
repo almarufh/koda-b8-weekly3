@@ -15,3 +15,15 @@ func NameActived() string {
 	}
 	return name
 }
+
+func UserNameActived() string {
+	getActived := database.GetActived()
+	actived := *getActived
+	var name string
+	for i := range actived {
+		if actived[i].Status == true {
+			name = actived[i].Email
+		}
+	}
+	return name
+}
