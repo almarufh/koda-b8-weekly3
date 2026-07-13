@@ -4,6 +4,7 @@ import (
 	"authenticatiion-flow/database"
 	"authenticatiion-flow/utils"
 	"fmt"
+	"time"
 )
 
 func CheckUser(email string, password string) {
@@ -61,12 +62,13 @@ func CheckUser(email string, password string) {
 
 	if loginSukses {
 		utils.Clear()
-		fmt.Printf("Login success, press enter to Dashboard..")
-		fmt.Scanf("\n")
+		fmt.Printf("Login success..")
+		time.Sleep(time.Duration(1) * time.Second)
 		Dashboard()
 	} else {
-		fmt.Printf("\n\nWrong email or password, press enter to home menu...")
+		fmt.Printf("\n\nWrong email or password !!!\n\nPress enter to back...")
 		fmt.Scanf("\n")
-		Menu()
+		// Menu()
+		return
 	}
 }
